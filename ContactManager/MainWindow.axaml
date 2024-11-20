@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ContactManager.MainWindow"
+        Title="Menadżer Kontaktów">
+    <StackPanel Margin="10">
+        
+        <TextBox x:Name="FirstNameTextBox" Watermark="Imie" Margin="0,0,0,10" />
+        <TextBox x:Name="LastNameTextBox" Watermark="Nazwisko" Margin="0,0,0,10" />
+        
+        <TextBox x:Name="PhoneNumberTextBox" Watermark="Numer Telefonu" Margin="0,0,0,10" />
+        <TextBox x:Name="EmailTextBox" Watermark="Email" Margin="0,0,0,10" />
+        
+        <CheckBox x:Name="FavoriteCheckBox" Content="Ulubione" Margin="0,0,0,10"/>
+        <Button x:Name="AddEditButton" Content="Dodaj/Edytuj Kontakt" Click="AddEditButtonClick" Margin="0,0,0,10"/>
+        
+        <ComboBox x:Name="FilterComboBox" SelectionChanged="OnFilterChanged" Margin="0,0,0,10">
+            <ComboBoxItem Content="Wszystkie"/>
+            <ComboBoxItem Content="Ulubione"/>
+            </ComboBox>
+        
+            <StackPanel>
+                <Button x:Name="SortByFirstNameButton" Content="Sortuj po imieniu" Click="OnSortByFirstNameClick" Margin="0,0,10,0"/>
+                <Button x:Name="SortByLastNameButton" Content="Sortuj po nazwisku" Click="OnSortByLastNameClick"/>
+            </StackPanel>
+        
+        <ListBox x:Name="ContactsListBox" Margin="0,0,0,10"/>
+        <Button x:Name="DeleteButton" Content="Usuń kontakt" Click="OnDeleteButtonClick" Margin="0,0,0,10"/>
+        
+    </StackPanel>
+</Window>
