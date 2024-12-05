@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Survey_Creator"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Survey_Creator.MainWindow"
+        Title="Survey_Creator">
+        <StackPanel>
+                <TextBox x:Name="QuestionTextBox" Watermark="Enter your question here" />
+                <RadioButton x:Name="SingleChoiceRadioButton" Content="Single Choice" IsChecked="True" />
+                <RadioButton x:Name="MultipleChoiceRadioButton" Content="Multiple Choice" />
+                <Button Content="Add Question" Click="OnAddQuestionClick" />
+                <ListBox x:Name="QuestionsListBox" />
+                <TextBox x:Name="AnswerTextBox" Watermark="Enter your answer here" />
+                <Button Content="Add Answer" Click="OnAddAnswerClick" />
+                <ListBox x:Name="AnswersListBox">
+                        <ListBox.ItemTemplate>
+                                <DataTemplate DataType="{x:Type local:Answer}">
+                                        <StackPanel Orientation="Horizontal">
+                                                <CheckBox IsChecked="{Binding IsChecked}" />
+                                                <TextBlock Text="{Binding Text}" />
+                                        </StackPanel>
+                                </DataTemplate>
+                        </ListBox.ItemTemplate>
+                </ListBox>
+                <Button Content="Save Survey" Click="OnSaveSurveyClick" />
+        </StackPanel>
+</Window>
